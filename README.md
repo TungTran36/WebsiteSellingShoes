@@ -102,7 +102,6 @@ nike-store/
 ## Tương lai
 
 - Tích hợp thanh toán VNPay/MoMo
-- Admin panel quản lý
 - Theo dõi đơn hàng
 - Đánh giá sản phẩm
 - Wishlist
