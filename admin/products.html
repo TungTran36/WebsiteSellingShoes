@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý sản phẩm - Admin Nike Store</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-header">
+                <img src="../images/nike-logo.png" alt="Nike Logo" class="sidebar-logo">
+                <h3>Admin Panel</h3>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a>
+                <a href="products.html" class="nav-item active">
+                    <i class="fas fa-box"></i> Quản lý sản phẩm
+                </a>
+                <a href="users.html" class="nav-item">
+                    <i class="fas fa-users"></i> Quản lý người dùng
+                </a>
+                <a href="orders.html" class="nav-item">
+                    <i class="fas fa-shopping-cart"></i> Quản lý đơn hàng
+                </a>
+                <a href="#" onclick="adminLogout()" class="nav-item logout">
+                    <i class="fas fa-sign-out-alt"></i> Đăng xuất
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <header class="admin-header">
+                <h1>Quản lý sản phẩm</h1>
+                <button class="btn btn-primary" onclick="openAddProductModal()">
+                    <i class="fas fa-plus"></i> Thêm sản phẩm
+                </button>
+            </header>
+
+            <div class="admin-content">
+                <!-- Search and Filter -->
+                <div class="admin-filters">
+                    <div class="search-box">
+                        <input type="text" id="product-search" placeholder="Tìm kiếm sản phẩm...">
+                        <button onclick="searchProducts()">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <select id="price-filter" onchange="filterProducts()">
+                        <option value="">Tất cả giá</option>
+                        <option value="0-2000000">Dưới 2 triệu</option>
+                        <option value="2000000-4000000">2-4 triệu</option>
+                        <option value="4000000-6000000">4-6 triệu</option>
+                        <option value="6000000-999999999">Trên 6 triệu</option>
+                    </select>
+                </div>
+
+                <!-- Products Table -->
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Hình ảnh</th>
+                                <th>Tên sản phẩm</th>
+                                <th>Giá</th>
+                                <th>Tồn kho</th>
+                                <th>Trạng thái</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="products-table">
+                            <!-- Products will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div class="admin-pagination" id="products-pagination">
+                    <!-- Pagination will be loaded here -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add/Edit Product Modal -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Thêm sản phẩm mới</h3>
+                <span class="close" onclick="closeProductModal()">&times;</span>
+            </div>
+            <form id="product-form">
+                <input type="hidden" id="product-id">
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="product-name">Tên sản phẩm:</label>
+                        <input type="text" id="product-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-price">Giá:</label>
+                        <input type="number" id="product-price" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="product-description">Mô tả:</label>
+                    <textarea id="product-description" rows="3" required></textarea>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="product-image">URL hình ảnh:</label>
+                        <input type="text" id="product-image" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-stock">Tồn kho:</label>
+                        <input type="number" id="product-stock" value="100" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="product-sizes">Sizes (JSON):</label>
+                    <input type="text" id="product-sizes" value='["38", "39", "40", "41", "42", "43", "44"]' required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="product-features">Tính năng (JSON):</label>
+                    <textarea id="product-features" rows="3" required>["Tính năng 1", "Tính năng 2", "Tính năng 3"]</textarea>
+                </div>
+                
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeProductModal()">Hủy</button>
+                    <button type="submit" class="btn btn-primary">Lưu</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/admin-auth.js"></script>
+    <script src="js/admin-products.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nike Store - Giỏ Hàng</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="images/nike-logo.png" alt="Nike Logo" class="nike-logo">
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Trang Chủ</a></li>
+                    <li><a href="products.html">Sản Phẩm</a></li>
+                    <li><a href="cart.html" class="active">Giỏ Hàng <span id="cart-count">0</span></a></li>
+                </ul>
+                <div class="nav-auth">
+                    <a href="login.html" class="login-btn">Đăng Nhập</a>
+                    <a href="register.html" class="register-btn">Đăng Ký</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="cart-page">
+            <div class="container">
+                <h1>Giỏ Hàng Của Bạn</h1>
+                
+                <div class="cart-content">
+                    <div class="cart-items" id="cart-items">
+                        <!-- Cart items will be loaded here -->
+                    </div>
+                    
+                    <div class="cart-summary">
+                        <h3>Tổng Đơn Hàng</h3>
+                        <div class="summary-row">
+                            <span>Tạm tính:</span>
+                            <span id="subtotal">0đ</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Phí vận chuyển:</span>
+                            <span>Miễn phí</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Tổng cộng:</span>
+                            <span id="total">0đ</span>
+                        </div>
+                        <button class="checkout-btn" onclick="checkout()">Thanh Toán</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Nike Store. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Load auth script first -->
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nike Store - Trang Chủ</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="images/nike-logo.png" alt="Nike Logo" class="nike-logo">
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Trang Chủ</a></li>
+                    <li><a href="products.html">Sản Phẩm</a></li>
+                    <li><a href="cart.html">Giỏ Hàng <span id="cart-count">0</span></a></li>
+                </ul>
+                <div class="nav-auth">
+                    <a href="login.html" class="login-btn">Đăng Nhập</a>
+                    <a href="register.html" class="register-btn">Đăng Ký</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>NIKE COLLECTION</h1>
+                <p>Khám phá bộ sưu tập giày Nike mới nhất</p>
+                <a href="products.html" class="cta-button">Mua Ngay</a>
+            </div>
+        </section>
+
+        <section class="search-section">
+            <div class="container">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Tìm kiếm sản phẩm...">
+                    <button onclick="searchProducts()"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-products">
+            <div class="container">
+                <h2>Sản Phẩm Nổi Bật</h2>
+                <div class="products-grid" id="featured-products">
+                    <!-- Products will be loaded here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Nike Store. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Load auth script first -->
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

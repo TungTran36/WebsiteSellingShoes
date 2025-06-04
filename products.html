@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nike Store - Sản Phẩm</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="images/nike-logo.png" alt="Nike Logo" class="nike-logo">
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Trang Chủ</a></li>
+                    <li><a href="products.html" class="active">Sản Phẩm</a></li>
+                    <li><a href="cart.html">Giỏ Hàng <span id="cart-count">0</span></a></li>
+                </ul>
+                <div class="nav-auth">
+                    <a href="login.html" class="login-btn">Đăng Nhập</a>
+                    <a href="register.html" class="register-btn">Đăng Ký</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="products-page">
+            <div class="container">
+                <h1>Tất Cả Sản Phẩm Nike</h1>
+                
+                <div class="search-filter">
+                    <div class="search-box">
+                        <input type="text" id="product-search" placeholder="Tìm kiếm sản phẩm...">
+                        <button onclick="filterProducts()"><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="filter-options">
+                        <select id="price-filter">
+                            <option value="">Tất cả giá</option>
+                            <option value="0-2000000">Dưới 2 triệu</option>
+                            <option value="2000000-4000000">2-4 triệu</option>
+                            <option value="4000000-6000000">4-6 triệu</option>
+                            <option value="6000000-999999999">Trên 6 triệu</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="products-grid" id="all-products">
+                    <!-- Products will be loaded here -->
+                </div>
+                
+                <!-- Thêm pagination -->
+                <div id="pagination" class="pagination-container">
+                    <!-- Pagination will be loaded here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Nike Store. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Load auth script first -->
+    <script src="js/auth.js"></script>
+    <script src="js/products.js"></script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Admin Nike Store</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-header">
+                <img src="../images/nike-logo.png" alt="Nike Logo" class="sidebar-logo">
+                <h3>Admin Panel</h3>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item active">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a>
+                <a href="products.html" class="nav-item">
+                    <i class="fas fa-box"></i> Quản lý sản phẩm
+                </a>
+                <a href="users.html" class="nav-item">
+                    <i class="fas fa-users"></i> Quản lý người dùng
+                </a>
+                <a href="orders.html" class="nav-item">
+                    <i class="fas fa-shopping-cart"></i> Quản lý đơn hàng
+                </a>
+                <a href="#" onclick="adminLogout()" class="nav-item logout">
+                    <i class="fas fa-sign-out-alt"></i> Đăng xuất
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <header class="admin-header">
+                <h1>Dashboard</h1>
+                <div class="admin-user">
+                    <i class="fas fa-user-shield"></i>
+                    <span id="admin-name">Admin</span>
+                </div>
+            </header>
+
+            <div class="admin-content">
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="total-products">30</h3>
+                            <p>Tổng sản phẩm</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="total-users">0</h3>
+                            <p>Tổng người dùng</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="total-orders">0</h3>
+                            <p>Tổng đơn hàng</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="total-revenue">0đ</h3>
+                            <p>Tổng doanh thu</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Orders -->
+                <div class="dashboard-section">
+                    <h2>Đơn hàng gần đây</h2>
+                    <div class="table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Khách hàng</th>
+                                    <th>Tổng tiền</th>
+                                    <th>Trạng thái</th>
+                                    <th>Ngày đặt</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recent-orders">
+                                <tr>
+                                    <td colspan="5" class="no-data">Chưa có đơn hàng nào</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Top Products -->
+                <div class="dashboard-section">
+                    <h2>Sản phẩm bán chạy</h2>
+                    <div class="products-grid">
+                        <div class="product-item">
+                            <img src="../images/products/air-max-270.jpg" alt="Nike Air Max 270">
+                            <h4>Nike Air Max 270</h4>
+                            <p>3,200,000đ</p>
+                        </div>
+                        <div class="product-item">
+                            <img src="../images/products/air-force-1.jpg" alt="Nike Air Force 1">
+                            <h4>Nike Air Force 1</h4>
+                            <p>2,800,000đ</p>
+                        </div>
+                        <div class="product-item">
+                            <img src="../images/products/react-infinity-run.jpg" alt="Nike React Infinity Run">
+                            <h4>Nike React Infinity Run</h4>
+                            <p>4,200,000đ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/admin-auth.js"></script>
+    <script src="js/admin-dashboard.js"></script>
+</body>
+</html>

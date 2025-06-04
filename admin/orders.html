@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý đơn hàng - Admin Nike Store</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-header">
+                <img src="../images/nike-logo.png" alt="Nike Logo" class="sidebar-logo">
+                <h3>Admin Panel</h3>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a>
+                <a href="products.html" class="nav-item">
+                    <i class="fas fa-box"></i> Quản lý sản phẩm
+                </a>
+                <a href="users.html" class="nav-item">
+                    <i class="fas fa-users"></i> Quản lý người dùng
+                </a>
+                <a href="orders.html" class="nav-item active">
+                    <i class="fas fa-shopping-cart"></i> Quản lý đơn hàng
+                </a>
+                <a href="#" onclick="adminLogout()" class="nav-item logout">
+                    <i class="fas fa-sign-out-alt"></i> Đăng xuất
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <header class="admin-header">
+                <h1>Quản lý đơn hàng</h1>
+                <div class="header-stats">
+                    <button class="btn btn-primary" onclick="refreshOrders()" style="margin-right: 1rem;">
+                        <i class="fas fa-sync-alt"></i> Làm mới
+                    </button>
+                    <span class="stat-badge pending">
+                        <i class="fas fa-clock"></i>
+                        Chờ xử lý: <span id="pending-orders">0</span>
+                    </span>
+                    <span class="stat-badge confirmed">
+                        <i class="fas fa-check"></i>
+                        Đã xác nhận: <span id="confirmed-orders">0</span>
+                    </span>
+                </div>
+            </header>
+
+            <div class="admin-content">
+                <!-- Search and Filter -->
+                <div class="admin-filters">
+                    <div class="search-box">
+                        <input type="text" id="order-search" placeholder="Tìm kiếm theo ID, khách hàng...">
+                        <button onclick="searchOrders()">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <select id="status-filter" onchange="filterOrders()">
+                        <option value="">Tất cả trạng thái</option>
+                        <option value="pending">Chờ xử lý</option>
+                        <option value="confirmed">Đã xác nhận</option>
+                        <option value="shipped">Đang giao</option>
+                        <option value="delivered">Đã giao</option>
+                    </select>
+                    <input type="date" id="date-filter" onchange="filterOrders()">
+                </div>
+
+                <!-- Orders Table -->
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Khách hàng</th>
+                                <th>Sản phẩm</th>
+                                <th>Tổng tiền</th>
+                                <th>Trạng thái</th>
+                                <th>Ngày đặt</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orders-table">
+                            <tr>
+                                <td colspan="7" class="no-data">Chưa có đơn hàng nào</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div class="admin-pagination" id="orders-pagination">
+                    <!-- Pagination will be loaded here -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Order Detail Modal -->
+    <div id="order-modal" class="modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3>Chi tiết đơn hàng #<span id="order-id"></span></h3>
+                <span class="close" onclick="closeOrderModal()">&times;</span>
+            </div>
+            <div class="order-detail" id="order-detail">
+                <!-- Order details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/admin-auth.js"></script>
+    <script src="js/admin-orders.js"></script>
+</body>
+</html>

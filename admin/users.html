@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý người dùng - Admin Nike Store</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-header">
+                <img src="../images/nike-logo.png" alt="Nike Logo" class="sidebar-logo">
+                <h3>Admin Panel</h3>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a>
+                <a href="products.html" class="nav-item">
+                    <i class="fas fa-box"></i> Quản lý sản phẩm
+                </a>
+                <a href="users.html" class="nav-item active">
+                    <i class="fas fa-users"></i> Quản lý người dùng
+                </a>
+                <a href="orders.html" class="nav-item">
+                    <i class="fas fa-shopping-cart"></i> Quản lý đơn hàng
+                </a>
+                <a href="#" onclick="adminLogout()" class="nav-item logout">
+                    <i class="fas fa-sign-out-alt"></i> Đăng xuất
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <header class="admin-header">
+                <h1>Quản lý người dùng</h1>
+                <div class="header-stats">
+                    <button class="btn btn-primary" onclick="refreshUsers()" style="margin-right: 1rem;">
+                        <i class="fas fa-sync-alt"></i> Làm mới
+                    </button>
+                    <span class="stat-badge">
+                        <i class="fas fa-users"></i>
+                        Tổng: <span id="total-users-count">0</span>
+                    </span>
+                </div>
+            </header>
+
+            <div class="admin-content">
+                <!-- Search and Filter -->
+                <div class="admin-filters">
+                    <div class="search-box">
+                        <input type="text" id="user-search" placeholder="Tìm kiếm theo tên, email...">
+                        <button onclick="searchUsers()">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <select id="status-filter" onchange="filterUsers()">
+                        <option value="">Tất cả trạng thái</option>
+                        <option value="active">Hoạt động</option>
+                        <option value="blocked">Bị khóa</option>
+                    </select>
+                </div>
+
+                <!-- Users Table -->
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Họ tên</th>
+                                <th>Email</th>
+                                <th>Số điện thoại</th>
+                                <th>Ngày đăng ký</th>
+                                <th>Trạng thái</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="users-table">
+                            <!-- Users will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div class="admin-pagination" id="users-pagination">
+                    <!-- Pagination will be loaded here -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- User Detail Modal -->
+    <div id="user-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Chi tiết người dùng</h3>
+                <span class="close" onclick="closeUserModal()">&times;</span>
+            </div>
+            <div class="user-detail" id="user-detail">
+                <!-- User details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/admin-auth.js"></script>
+    <script src="js/admin-users.js"></script>
+</body>
+</html>
